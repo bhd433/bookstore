@@ -24,7 +24,6 @@ public class BookstoreApplication {
 			Book a = new Book("harry potter", "J.K Rowling", 2005, "54321", 19.95);
 			Book b = new Book("lord of the rings", "J.R Tolkien", 1954, "12345", 39.95);
 			Book c = new Book("raamattu", "jeesus", 1982, "24680", 15.50);
-
 			repository.save(a);
 			repository.save(b);
 			repository.save(c);

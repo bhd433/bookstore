@@ -42,7 +42,7 @@ public class BookController {
 
     // kirjan poisto
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String kirjanPoisto(@PathVariable("id") long id, Model model) {
+    public String kirjanPoisto(@PathVariable("id") long id) {
 
         repository.deleteById(id);
         return "redirect:../booklist";
@@ -66,4 +66,12 @@ public class BookController {
         return "redirect:booklist";
     }
 
+    
+    // kirjan muokkaus
+    @RequestMapping("/edit/{id}")
+    public String kirjanMuokkaus(@PathVariable("id") Long id, Model model) {
+
+        model.addAttribute("Book", repository.findById(id));
+        return "addbook";
+    }
 }
