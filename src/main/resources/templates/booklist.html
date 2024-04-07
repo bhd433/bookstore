@@ -1,25 +1,38 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<title>Kirjalista</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>Kirjalista</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
-	<h1>Listan kirjoista näet täällä</h1>
-	<table>
+    <h1>Listan kirjoista näet täällä</h1>
+    <table class="table table-striped">
         <tbody>
-            <tr th:each = "book : ${books}">
-                <td th:text = "${book.title}">
-                <td th:text = "${book.author}">
-                <td th:text = "${book.publicationYear}">
-                <td th:text = "${book.isbn}">
-                <td th:text = "${book.price}">
-                <td><a th:href="@{/delete/{id}(id=${book.id})}">Poista</a></td>
-                <td><a th:href="@{/edit/{id}(id=${book.id})}">Muokkaa</a></td>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publication year</th>
+                <th>Isbn</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.title}">
+                <td th:text="${book.author}">
+                <td th:text="${book.publicationYear}">
+                <td th:text="${book.isbn}">
+                <td th:text="${book.price}">
+                <td th:text="${book.category.name}"></td>
+                <td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Poista</a></td>
+                <td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-info">Muokkaa</a></td>
             </tr>
         </tbody>
     </table>
-    <a href="/add" class="btn btn-primary">Lisää kirja</a>
-	
+    <a href="/add" class="btn btn-success">Lisää kirja</a>
+
 </body>
+
 </html>

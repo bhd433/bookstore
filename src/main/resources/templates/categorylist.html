@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>Kategoriat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Listan kategorioista näet täällä</h1>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr th:each="category : ${categories}">
+                <td th:text="${category.categoryid}">
+                <td th:text="${category.name}">
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="/addcategory" class="btn btn-success">Lisää kategoria</a>
+</body>
+
+</html>

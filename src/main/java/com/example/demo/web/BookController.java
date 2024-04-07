@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.Book;
 import com.example.demo.domain.BookRepository;
+import com.example.demo.domain.CategoryRepository;
 
 @Controller
 public class BookController {
 
     @Autowired
     private BookRepository repository; // booklistiä varten
+
+    @Autowired
+    private CategoryRepository categoryRepository; // category repo
 
 
     // tervetuloa
@@ -54,6 +58,7 @@ public class BookController {
     public String kirjanLisays(Model model) {
 
         model.addAttribute("Book", new Book());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "addbook";
     }
 
@@ -71,6 +76,7 @@ public class BookController {
     @RequestMapping("/edit/{id}")
     public String kirjanMuokkaus(@PathVariable("id") Long id, Model model) {
 
+        //model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("Book", repository.findById(id));
         return "addbook";
     }

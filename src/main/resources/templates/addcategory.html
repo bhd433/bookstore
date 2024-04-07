@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>Kategorian lisääminen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Aseta kategorian tiedot</h1>
+    <div>
+        <form action="#" method="post" th:object="${kategoria}" th:action="@{/savecategory}">
+
+            <input type="hidden" th:field="*{categoryid}" />
+            <input type="text" id="name" th:field="*{name}" placeholder="Name"/>
+
+
+            <input type="submit" value="Save" class="btn btn-success"></input>
+        </form>
+    </div>
+</body>
+
+</html>
