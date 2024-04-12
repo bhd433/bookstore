@@ -1,4 +1,6 @@
 package com.example.demo.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ public class Book {
     private double price;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "categoryid")
     private Category category;
 
@@ -35,7 +38,6 @@ public class Book {
         this.price = price;
         this.category = category;
     }
-
     
     public String getTitle() {
         return title;

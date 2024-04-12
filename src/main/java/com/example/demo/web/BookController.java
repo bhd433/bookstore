@@ -76,7 +76,7 @@ public class BookController {
     @RequestMapping("/edit/{id}")
     public String kirjanMuokkaus(@PathVariable("id") Long id, Model model) {
 
-        //model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("Book", repository.findById(id));
         return "addbook";
     }
