@@ -5,7 +5,7 @@ FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
 
 # Copy the compiled JAR file into the container at /app
-COPY target/BookstoreApplication*.jar /app/BookstoreApplication.jar
+COPY target/BookstoreApplication.jar /app/BookstoreApplication.jar
 
 # Expose the port your application runs on
 EXPOSE 8080
