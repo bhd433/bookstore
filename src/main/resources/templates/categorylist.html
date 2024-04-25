@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+    </form>
+
     <h1>Listan kategorioista näet täällä</h1>
     <table class="table table-striped">
         <tbody>
@@ -22,7 +26,10 @@
             </tr>
         </tbody>
     </table>
-    <a href="/addcategory" class="btn btn-success">Lisää kategoria</a>
+    <a sec:authorize="hasRole('ADMIN')" href="/addcategory" class="btn btn-success">Lisää kategoria</a>
+    <br>
+    <br>
+    <a th:href="@{/booklist}"><button>Kirjalista</button>  </a>
 </body>
 
 </html>

@@ -25,6 +25,16 @@ public class BookController {
     private CategoryRepository categoryRepository; // category repo
 
 
+
+    //login
+    @RequestMapping("/login")
+    public String login() {
+        
+        return "login";
+    }
+    
+
+
     // tervetuloa
     @GetMapping("/index")
     public String index() {

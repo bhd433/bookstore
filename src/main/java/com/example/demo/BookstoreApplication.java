@@ -9,6 +9,9 @@ import com.example.demo.domain.Book;
 import com.example.demo.domain.BookRepository;
 import com.example.demo.domain.Category;
 import com.example.demo.domain.CategoryRepository;
+//import com.example.demo.domain.Kayttaja;
+//import com.example.demo.domain.Kayttaja;
+//import com.example.demo.domain.UserRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -19,7 +22,8 @@ public class BookstoreApplication {
 
 
 	@Bean
-	public CommandLineRunner demo(BookRepository bookRepository, CategoryRepository categoryRepository) {
+	public CommandLineRunner demo(BookRepository bookRepository, CategoryRepository categoryRepository//, UserRepository userRepository
+	) {
 		return (args) -> {
 
 			// Your code...add some demo data to db
@@ -37,6 +41,15 @@ public class BookstoreApplication {
 			bookRepository.save(a);
 			bookRepository.save(b);
 			bookRepository.save(c);
+
+
+
+			// moodlen videoiden avulla ei saanut database käyttäjiä toimimaan
+
+			//Kayttaja user1 = new Kayttaja("user", "$2a$10$xKWykxbhVFqbE0pz/DCP..nKBHfscCvb6WzjbqswUx0a8uQOL6xNa", "USER");
+			//Kayttaja user2 = new Kayttaja("admin", "$2a$10$7qjibMA9wUSBZdCBKvE91.WbW3FdHDvwpTTCEPKKrX/iREAjARxfi", "ADMIN");
+			//userRepository.save(user1);
+			//userRepository.save(user2);
 		};
 	}
 }
